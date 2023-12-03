@@ -8,10 +8,11 @@
     "build": "tsc && vite build && pnpm encrypt",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "upload": "netlify deploy --prod --dir=dist",
     "encrypt": "dotenv -- pnpm _encrypt",
     "sync": "dotenv -- pnpm _sync",
     "_encrypt": "pagecrypt dist/index.html dist/index.html $ENCRYPTION_PASSWORD",
-    "_sync": "rsync -av $RECIPE_DIR/ ./content/ --exclude assets && rsync -av $RECIPE_DIR/assets ./public/"
+    "_sync": "rsync -av  $RECIPE_DIR/ ./content/ --exclude assets --delete && rsync -av $RECIPE_DIR/assets ./public/ --delete"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -33,6 +34,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "netlify-cli": "^17.8.1",
     "pagecrypt": "^6.1.1",
     "postcss": "^8.4.32",
     "prettier": "^3.1.0",

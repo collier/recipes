@@ -28,3 +28,5 @@ content/*
 public/assets
 public/icons
 public/logo.ico
+# Local Netlify folder
+.netlify

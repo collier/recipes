@@ -11,4 +11,10 @@ export default defineConfig({
     mdx({ remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter] }),
     viteSingleFile(),
   ],
+  server: {
+    port: 3000,
+  },
+  preview: {
+    port: 3001,
+  },
 });
